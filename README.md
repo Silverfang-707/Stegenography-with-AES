@@ -30,15 +30,15 @@ This Python script allows users to perform steganography, hiding encrypted messa
     ```python
     Enter if you want to Encrypt(E) or Decrypt(D): E
     Enter the Image Path: path/to/image.png
-    Enter your text: Your secret message here
-    Enter your key: your_secret_key
+    Enter your Message: Your secret message here
+    Enter key: your_secret_key
     ```
 
 - **Decoding a Message:**
     ```python
     Enter if you want to Encrypt(E) or Decrypt(D): D
     Enter the Encoded Image Path: path/to/encoded_image.png
-    Enter your key: your_secret_key
+    Enter key: your_secret_key
     ```
 
 ## Note
