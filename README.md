@@ -43,7 +43,7 @@ This Python script allows users to perform steganography, hiding encrypted messa
 
 ## Note
 
-- This is just a simple implementation and may not be secure for professional purposes
+- This is just a simple implementation and is not secure for professional purposes
 
 ## Author
 
