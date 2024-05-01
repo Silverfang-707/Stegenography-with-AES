@@ -102,7 +102,7 @@ def main():
     decision = input("Enter if you want to Encrypt(E) or Decrypt(D): ")
     if(decision.capitalize() == 'E'):
         # Get user Inputs
-        image_path = input("Enter the Image Path(with Extenstion): ")
+        image_path = input("Enter the Image Path(with Extension): ")
         plain_text = input("Enter your Message: ")
         key = input("Enter key: ")
         key = key_convert(key).encode()
