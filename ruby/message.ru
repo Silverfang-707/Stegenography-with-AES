@@ -3,8 +3,8 @@ require 'fiber'
 conversation = [
   { sender: 'Faculty', message: 'Hello Students' },
   { sender: 'Student', message: 'Hello Sir' },
-  { sender: 'Faculty', message: 'Do well in your exams' },
-  { sender: 'Student', message: 'Yes Sir' },
+  { sender: 'Faculty', message: 'What is your Register number' },
+  { sender: 'Student', message: '22MIS1088' },
   { sender: 'Faculty', message: 'All the best' },
   { sender: 'Student', message: 'Thankyou Sir' },
 ]
