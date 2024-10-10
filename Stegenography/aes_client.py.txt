@@ -1,0 +1,24 @@
+import socket
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+def encrypt(plaintext, key, key_size=128):
+    cipher = AES.new(key, AES.MODE_ECB)
+    if len(plaintext) > 128:
+        plaintext = plaintext[:128]
+    padded_plaintext = pad(plaintext.encode(), AES.block_size)
+    ciphertext = cipher.encrypt(padded_plaintext)
+    return ciphertext
+def main():
+    key_size = 128
+    key = b'ThisIsSecret Key'
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect(('127.0.0.1', 7001))
+    while True:
+        message = input("Enter a message to send (or 'exit' to quit): ")
+        if message.lower() == 'exit':
+            break
+        ciphertext = encrypt(message, key, key_size)
+        client_socket.sendall(ciphertext)
+    client_socket.close()
+if __name__ == "__main__":
+    main()

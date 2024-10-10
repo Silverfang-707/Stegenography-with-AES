@@ -1,0 +1,24 @@
+To express the function f(n) = n^3/1000 - 100n^2 - 100n - 3 in terms of the notations θ, O, Ω, o, ω, we need to analyze its growth rate in different scenarios.
+
+1. θ-notation (Theta): The function f(n) is said to be θ(g(n)) if it is both O(g(n)) and Ω(g(n)). It means that f(n) grows at the same rate as g(n) within a constant factor.
+In this case, we can express f(n) as θ(n^3), since all the other terms (-100n^2, -100n, -3) become insignificant as n grows.
+
+2. O-notation (Big O): The function f(n) is said to be O(g(n)) if f(n) grows at most as fast as g(n) asymptotically.
+In this case, we can express f(n) as O(n^3), since the highest degree term dominates the growth rate.
+
+3. Ω-notation (Big Omega): The function f(n) is said to be Ω(g(n)) if f(n) grows at least as fast as g(n) asymptotically.
+In this case, we can express f(n) as Ω(n^3), since the highest degree term dominates the growth rate.
+
+4. o-notation (Small o): The function f(n) is said to be o(g(n)) if f(n) grows strictly slower than g(n) asymptotically.
+In this case, we can express f(n) as o(n^4), since n^4 grows faster than n^3.
+
+5. ω-notation (Small Omega): The function f(n) is said to be ω(g(n)) if f(n) grows strictly faster than g(n) asymptotically.
+In this case, we can express f(n) as ω(1), since any constant is growing slower than any polynomial term.
+
+To summarize:
+
+f(n) = θ(n^3)
+f(n) = O(n^3)
+f(n) = Ω(n^3)
+f(n) = o(n^4)
+f(n) = ω(1)

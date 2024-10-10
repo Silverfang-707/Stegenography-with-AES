@@ -1,0 +1,76 @@
+Inversion Algorithm:
+
+Pseudocode:
+function mergeSortAndCountInversions(arr, start, end):
+    if start < end:
+        mid = (start + end) / 2
+
+        // Recursively divide the array and count inversions
+        inversions = mergeSortAndCountInversions(arr, start, mid)
+        inversions += mergeSortAndCountInversions(arr, mid + 1, end)
+
+        // Merge two sorted subarrays and count split inversions
+        inversions += mergeAndCountSplitInversions(arr, start, mid, end)
+
+    return inversions
+
+function mergeAndCountSplitInversions(arr, start, mid, end):
+    leftSize = mid - start + 1
+    rightSize = end - mid
+
+    // Create temporary arrays to store left and right subarrays
+    leftArr = new array[leftSize]
+    rightArr = new array[rightSize]
+
+    // Copy data to temporary arrays
+    for i = 0 to leftSize - 1:
+        leftArr[i] = arr[start + i]
+    for j = 0 to rightSize - 1:
+        rightArr[j] = arr[mid + 1 + j]
+
+    // Merge the two subarrays while counting split inversions
+    i = 0 // Index for the left subarray
+    j = 0 // Index for the right subarray
+    k = start // Index for the merged array
+    inversions = 0 // Count of split inversions
+
+    while i < leftSize and j < rightSize:
+        if leftArr[i] <= rightArr[j]:
+            arr[k] = leftArr[i]
+            i += 1
+        else:
+            arr[k] = rightArr[j]
+            j += 1
+            inversions += (leftSize - i) // Count split inversions
+
+        k += 1
+
+    // Copy the remaining elements of leftArr, if any
+    while i < leftSize:
+        arr[k] = leftArr[i]
+        i += 1
+        k += 1
+
+    // Copy the remaining elements of rightArr, if any
+    while j < rightSize:
+        arr[k] = rightArr[j]
+        j += 1
+        k += 1
+
+    return inversions
+
+// Main function to compute the number of inversions
+function countInversions(arr):
+    return mergeSortAndCountInversions(arr, 0, arr.length - 1)
+
+Time Complexity Explanation:
+
+The inversion algorithm uses the concept of "divide and conquer" by recursively dividing the array into smaller subarrays until each subarray contains a single element. It then merges these subarrays in a sorted manner, while counting the split inversions.
+The running time of the inversion algorithm is O(n log n), where n is the size of the array. This is because the algorithm performs a merge sort, which has a time complexity of O(n log n).
+
+Comparing the running time of the inversion algorithm with the insertion-sort algorithm:
+
+Insertion Sort: The worst-case running time of Insertion Sort is O(n^2), where n is the size of the array. In the worst case, each element must be compared and potentially swapped with every previous element in the array.
+
+Inversion Algorithm: The running time of the inversion algorithm is O(n log n), which is more efficient than the worst-case running time of Insertion Sort. The inversion algorithm benefits from the divide and conquer strategy of merge sort, which reduces the number of comparisons required.
+Both the insertion-sort algorithm and the inversion algorithm involve
